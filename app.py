@@ -19,8 +19,7 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-DATA = Path(os.environ.get("TIRA_DATA", "data"))
-REQUIRED = ["terrain_emit_joined.csv", "tira_nova_scan_catalog.csv"]
+DATA = Path(os.environ.get("TIRA_DATA", str(Path(__file__).resolve().parent)))REQUIRED = ["terrain_emit_joined.csv", "tira_nova_scan_catalog.csv"]
 THERMAL_FILES = ["themis_features.csv", "earth_thermal_features.csv"]
 THERMAL_COLS = ["region_id", "planet", "dataset", "resolution_m", "feature_name", "value", "coverage_pct",
                 "source_date", "status"]
